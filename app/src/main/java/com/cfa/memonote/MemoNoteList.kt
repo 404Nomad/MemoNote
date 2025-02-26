@@ -9,7 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 class MemoNoteList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         setContentView(R.layout.activity_memo_note_list)
 
         // Utilisez l'id du CoordinatorLayout défini dans votre layout (ici "coordinator")
