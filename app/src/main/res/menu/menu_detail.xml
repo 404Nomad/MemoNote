@@ -7,7 +7,15 @@
         android:id="@+id/action_save"
         app:showAsAction="always"
         android:icon="@drawable/ic_save_playstore"
-
+        android:title="Enregistrer"
+        app:maxImageSize="40dp"
+        />
+    <item
+        android:id="@+id/action_del"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_delete_playstore"
+        android:title="Supprimer"
+        app:maxImageSize="40dp"
         />
 
 </menu>
