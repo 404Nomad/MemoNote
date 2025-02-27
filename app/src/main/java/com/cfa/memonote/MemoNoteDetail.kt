@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.cfa.memonote.classes.Note
@@ -110,6 +111,9 @@ class MemoNoteDetail : AppCompatActivity() {
         // toolbar
         val toolbar = findViewById<Toolbar>(R.id.note_toolbar)
         setSupportActionBar(toolbar)
+
+        // Force la couleur de la barre de statut
+        window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimaryDark)
 
         // alimenter en passant par systemIntent
         note = intent.getParcelableExtra(NOTE_EXTRA, Note::class.java)!!

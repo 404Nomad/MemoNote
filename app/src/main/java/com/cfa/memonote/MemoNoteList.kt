@@ -12,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,6 +42,9 @@ class MemoNoteList : AppCompatActivity(), View.OnClickListener {
         // Toolbar
         val note_toolbar = findViewById<Toolbar>(R.id.note_toolbar)
         setSupportActionBar(note_toolbar)
+
+        // Force la couleur de la barre de statut
+        window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimaryDark)
 
         // floating action button
         val new_note_fab = findViewById<FloatingActionButton>(R.id.new_fab_note)
