@@ -3,50 +3,50 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     tools:context=".MemoNoteList"
     android:id="@+id/coordinator"
-
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_height="match_parent">
 
-        <!--Premier composant toolbar -->
-        <androidx.appcompat.widget.Toolbar
+    <!-- Barre d'app extensible -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true"
+        android:theme="@style/ThemeOverlay.Material3.ActionBar">
+
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/note_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            >
-        </androidx.appcompat.widget.Toolbar>
+            app:title="@string/app_name"
+            app:titleCentered="true"
+            app:layout_scrollFlags="scroll|enterAlways" />
 
-        <!-- Deuxieme composant recyclerView qui recupere liste de notes -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/note_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/note_toolbar"
-            tools:listitem="@layout/note"
-            android:layout_marginTop="-64dp"
-            >
-        </androidx.recyclerview.widget.RecyclerView>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    </RelativeLayout>
+    <!-- Liste des notes avec un padding pour aérer -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/note_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/note" />
+
+    <!-- Bouton flottant -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/new_fab_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
-        app:layout_anchor="@id/note_recycler_view"
-        app:layout_anchorGravity="bottom|right"
+        android:src="@drawable/ic_add_playstore"
         android:layout_margin="16dp"
         android:tint="@android:color/black"
-        android:src="@drawable/ic_add_playstore"
+        android:backgroundTint="@color/colorAccent"
         app:maxImageSize="56dp"
-        />
-
-
+        app:layout_anchor="@id/note_recycler_view"
+        app:layout_anchorGravity="bottom|end" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

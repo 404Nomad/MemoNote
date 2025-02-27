@@ -56,10 +56,18 @@ class MemoNoteList : AppCompatActivity(), View.OnClickListener {
         // construit les items du recycler
         adapter = NoteAdapter(notes, this)
 
-        // construit le recycler
         val recyclerView: RecyclerView = findViewById(R.id.note_recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
+
+        // Ajouter un séparateur de type Divider
+        val divider = androidx.recyclerview.widget.DividerItemDecoration(
+            this,
+            layoutManager.orientation
+        )
+        recyclerView.addItemDecoration(divider)
+
     }
 
     // OnClick Condition
