@@ -6,10 +6,10 @@ import java.io.Serializable
 
 // nos trois variables
 data class Note(
-    val titre: String? = "",
-    val texte: String? = "",
-    val fileName: String? = "",
-): Parcelable, Serializable {
+    var titre: String? = "",
+    var texte: String? = "",
+    var fileName: String? = "",
+) : Parcelable, Serializable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),

@@ -15,7 +15,7 @@ class NoteAdapter(
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val cardView = itemView.findViewById<CardView>(R.id.note_cardview)
-        val titleView = itemView.findViewById<TextView>(R.id.note_cardview)
+        val titleView = itemView.findViewById<TextView>(R.id.title_note)
         val excerptView = itemView.findViewById<TextView>(R.id.excerpt)
     }
 
@@ -24,6 +24,7 @@ class NoteAdapter(
         return ViewHolder(viewitem)
     }
 
+    // ajout tag sur cardview pour pouvoir obtenir l'index de la note
     override fun onBindViewHolder(holder: NoteAdapter.ViewHolder, position: Int) {
         val note = notes[position]
         holder.cardView.tag = position
